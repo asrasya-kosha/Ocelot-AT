@@ -8,7 +8,7 @@ stages {
         }
         stage('Build Ocelot'){
             steps{
-                sh 'dotnet Build'
+                sh 'dotnet build'
             }
         }
     }
