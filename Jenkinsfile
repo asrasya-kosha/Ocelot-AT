@@ -1,9 +1,14 @@
 pipeline {
 agent any
 stages {
-        stage('Test'){
+        stage('Clean Ocelot'){
             steps{
-                echo 'Hello'
+                sh 'dotnet clean'
+            }
+        }
+        stage('Build Ocelot'){
+            steps{
+                sh 'dotnet Build'
             }
         }
     }
