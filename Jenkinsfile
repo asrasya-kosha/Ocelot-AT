@@ -29,7 +29,7 @@ stages {
     }
     post{
                 always {
-                    artifacts: 'TestResults/**/*.html', fingerprint: true
+                    archiveArtifacts artifacts: 'TestResults/**/*.html', fingerprint: true
                 }
     }
 }
