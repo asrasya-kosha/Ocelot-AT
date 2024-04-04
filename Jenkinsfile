@@ -13,7 +13,7 @@ stages {
         }
         stage('Run Ocelot Unit Tests'){
             steps{
-                sh 'dotnet test --no-build --framework net8.0 --filter "UnitTests"'
+                sh 'dotnet test --no-build --framework net8.0  --filter "UnitTests" --logger:"html;LogFilePrefix=testResults"'
             }
         }
         stage('Run Ocelot Integration Tests'){
@@ -26,5 +26,10 @@ stages {
                 sh 'dotnet test --no-build --framework net8.0 --filter "AcceptanceTests"'
             }
         }
+    }
+    post{
+                always {
+                    artifacts: 'TestResults/**/*.html', fingerprint: true
+                }
     }
 }
