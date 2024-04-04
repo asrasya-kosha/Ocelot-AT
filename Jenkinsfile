@@ -13,17 +13,17 @@ stages {
         }
         stage('Run Ocelot Unit Tests'){
             steps{
-                sh 'dotnet test --no-build --filter "UnitTests"'
+                sh 'dotnet test --no-build --framework net8.0 --filter "UnitTests"'
             }
         }
         stage('Run Ocelot Integration Tests'){
             steps{
-                sh 'dotnet test --no-build --filter "IntegrationTests"'
+                sh 'dotnet test --no-build --framework net8.0 --filter "IntegrationTests"'
             }
         }
         stage('Run Ocelot Acceptance Tests'){
             steps{
-                sh 'dotnet test --no-build --filter "AcceptanceTests"'
+                sh 'dotnet test --no-build --framework net8.0 --filter "AcceptanceTests"'
             }
         }
     }
